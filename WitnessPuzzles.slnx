@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/WitnessPuzzles.Api/WitnessPuzzles.Api.csproj" />
+  </Folder>
+</Solution>

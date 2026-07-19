@@ -1,0 +1,6 @@
+@WitnessPuzzles.Api_HostAddress = http://localhost:5053
+
+GET {{WitnessPuzzles.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
