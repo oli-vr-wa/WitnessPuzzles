@@ -1,6 +1,8 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/WitnessPuzzles.Api/WitnessPuzzles.Api.csproj" />
+    <Project Path="src/WitnessPuzzles.Application/WitnessPuzzles.Application.csproj" />
     <Project Path="src/WitnessPuzzles.Core/WitnessPuzzles.Core.csproj" />
+    <Project Path="src/WitnessPuzzles.Infrastructure/WitnessPuzzles.Infrastructure.csproj" />
   </Folder>
 </Solution>

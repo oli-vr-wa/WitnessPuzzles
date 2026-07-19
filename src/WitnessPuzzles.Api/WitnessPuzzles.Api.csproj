@@ -2,6 +2,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WitnessPuzzles.Core\WitnessPuzzles.Core.csproj" />
+    <ProjectReference Include="..\WitnessPuzzles.Application\WitnessPuzzles.Application.csproj" />
+    <ProjectReference Include="..\WitnessPuzzles.Infrastructure\WitnessPuzzles.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Scrutor" Version="7.0.0" />
   </ItemGroup>
 
   <PropertyGroup>
