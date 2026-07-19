@@ -10,5 +10,5 @@ public class Node
     public bool IsEnd { get; init; } = false;
     public bool HasDot { get; init; } = false;
 
-    public IEnumerable<Edge> ConnectedEdges { get; } = []; // A node knows which edgers are connected to it.
+    public List<Edge> ConnectedEdges { get; } = new List<Edge>(); // A node knows which edges are connected to it.
 }
