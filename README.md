@@ -30,11 +30,11 @@ This project is split into two distinct layers to separate the visual rendering 
 3. The API will start on `http://localhost:[PORT]`.
 
 ### Planned Puzzle Mechanics
-* [] Basic pathfinding (Start node to End node).
-* [] Black/White square separation.
-* [] Essentail waypoints (Hexagon dots).
-* [] Symmetry lines.
-* [] Tetris blocks. 
+* [ ] Basic pathfinding (Start node to End node).
+* [ ] Black/White square separation.
+* [ ] Essentail waypoints (Hexagon dots).
+* [ ] Symmetry lines.
+* [ ] Tetris blocks. 
    
 
 
