@@ -8,6 +8,11 @@ public class GridBuilderService : IGridBuilderService
     /// <inheritdoc />
     public PuzzleGrid BuildRectangularGrid(int width, int height)
     {
+        if (width <= 0 || height <= 0)
+        {
+            throw new ArgumentException("Width and height must be positive integers.");
+        }
+
         var nodes = new Dictionary<int, Node>();
         var edges = new Dictionary<int, Edge>();
         var cells = new Dictionary<int, Cell>();
