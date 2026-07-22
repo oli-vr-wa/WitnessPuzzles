@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace WitnessPuzzles.Core.Models;
 
@@ -14,4 +10,6 @@ public class PuzzleGrid
     public string BackgroundColor { get; init; } = PuzzleColors.White;
     public string EdgesColor { get; init; } = PuzzleColors.Blue;
     public string CellsColor { get; init; } = PuzzleColors.LightBlue;
+    public string LineInputColor { get; init; } = PuzzleColors.White;
+    public string LineInputSolvedColor { get; init; } = PuzzleColors.LightBlue;
 }
