@@ -2,6 +2,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WitnessPuzzles.Core\WitnessPuzzles.Core.csproj" />
+    <ProjectReference Include="..\WitnessPuzzles.Application\WitnessPuzzles.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.10" />
   </ItemGroup>
 
   <PropertyGroup>
