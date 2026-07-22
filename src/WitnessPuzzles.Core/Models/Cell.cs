@@ -8,7 +8,7 @@ public class Cell
     public required int X { get; init; }
     public required int Y { get; init; }
 
-    public CellSymbol? Symbol { get; init; }
+    public CellSymbol? Symbol { get; set; }
 
     public Edge? TopEdge { get; init; }
     public Edge? RightEdge { get; init; }
