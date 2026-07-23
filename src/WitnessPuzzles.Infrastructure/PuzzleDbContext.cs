@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using WitnessPuzzles.Infrastructure.Configurations;
 using WitnessPuzzles.Infrastructure.Entities;
 
 namespace WitnessPuzzles.Infrastructure;
@@ -11,12 +12,6 @@ public class PuzzleDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<PuzzleEntity>(entity =>
-        {
-            entity.HasKey(e => e.Id);
-            entity.OwnsMany(e => e.NodeModifiers);
-            entity.OwnsMany(e => e.EdgeModifiers);
-            entity.OwnsMany(e => e.CellModifiers);
-        });
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(PuzzleDbContext).Assembly);
     }
 }

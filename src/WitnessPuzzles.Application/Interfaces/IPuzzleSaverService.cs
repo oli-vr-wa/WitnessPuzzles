@@ -16,5 +16,5 @@ public interface IPuzzleSaverService
     /// <param name="grid">The PuzzleGrid object to save.</param>
     /// <param name="puzzleName">The name of the puzzle.</param>
     /// <returns>The unique identifier of the saved puzzle blueprint.</returns>
-    Task<int> SavePuzzleGridAsync(PuzzleGrid grid, string puzzleName);
+    Task<Guid> SavePuzzleGridAsync(PuzzleGrid grid, string puzzleName);
 }

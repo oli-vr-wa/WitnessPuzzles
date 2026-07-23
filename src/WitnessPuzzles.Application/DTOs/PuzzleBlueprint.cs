@@ -8,7 +8,7 @@ namespace WitnessPuzzles.Application.DTOs;
 
 public class PuzzleBlueprint
 {
-    public required int Id { get; set; }
+    public required Guid Id { get; set; }
     public required string Name { get; set; }
 
     public required int Width { get; set; }

@@ -10,7 +10,7 @@ public class PuzzleRepository(PuzzleDbContext context) : IPuzzleRepository
     private readonly PuzzleDbContext _context = context;
 
     /// <inheritdoc />
-    public async Task<PuzzleBlueprint?> GetBlueprintByIdAsync(int id)
+    public async Task<PuzzleBlueprint?> GetBlueprintByIdAsync(Guid id)
     {
         var entity = await _context.Puzzles
             .Include(p => p.NodeModifiers)

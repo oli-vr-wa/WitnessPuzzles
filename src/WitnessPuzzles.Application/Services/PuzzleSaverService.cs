@@ -9,12 +9,12 @@ public class PuzzleSaverService(IPuzzleRepository puzzleRepository) : IPuzzleSav
     private readonly IPuzzleRepository _puzzleRepository = puzzleRepository;
 
     /// <inheritdoc />
-    public async Task<int> SavePuzzleGridAsync(PuzzleGrid grid, string puzzleName)
+    public async Task<Guid> SavePuzzleGridAsync(PuzzleGrid grid, string puzzleName)
     {
         if (grid == null)        
             throw new ArgumentNullException(nameof(grid), "PuzzleGrid cannot be null.");
-        
-        var blueprint = grid.ToBlueprint(puzzleName);
+        var id = Guid.NewGuid();
+        var blueprint = grid.ToBlueprint(id, puzzleName);
 
         await _puzzleRepository.SaveBlueprintAsync(blueprint);
 

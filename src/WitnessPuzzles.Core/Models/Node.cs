@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace WitnessPuzzles.Core.Models;
 
 public class Node
@@ -10,5 +12,6 @@ public class Node
     public bool IsEnd { get; set; } = false;
     public bool HasDot { get; set; } = false;
 
-    public List<Edge> ConnectedEdges { get; } = new List<Edge>(); // A node knows which edges are connected to it.
+    [JsonIgnore]
+    public List<Edge> ConnectedEdges { get; } = new(); // A node knows which edges are connected to it.
 }
