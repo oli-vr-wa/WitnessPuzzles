@@ -27,7 +27,7 @@ public class LoadPlayablePuzzleAsyncTests
     public async Task ReturnsNull_WhenPuzzleBlueprintIsNull()
     {
         // Arrange
-        int puzzleId = 1;
+        var puzzleId = Guid.NewGuid();
         _puzzleRepository.GetBlueprintByIdAsync(puzzleId).Returns(Task.FromResult<PuzzleBlueprint?>(null));
 
         // Act
@@ -41,10 +41,10 @@ public class LoadPlayablePuzzleAsyncTests
     public async Task TaskReturnsGridWithProperties_WhenBlueprintIsValid()
     {
         // Arrange
-        int puzzleId = 1;
+        var puzzleId = Guid.NewGuid();
         var blueprint = new PuzzleBlueprint
         {
-            Id = 1,
+            Id = puzzleId,
             Name = "Test Puzzle",
             Width = 2,
             Height = 2,

@@ -15,5 +15,5 @@ public interface IPuzzleLoaderService
     /// </summary>
     /// <param name="puzzleId">The unique identifier of the puzzle.</param>
     /// <returns>The playable puzzle grid with the specified ID, or null if it cannot be created.</returns>
-    Task<PuzzleGrid?> LoadPlayablePuzzleAsync(int puzzleId);
+    Task<PuzzleGrid?> LoadPlayablePuzzleAsync(Guid puzzleId);
 }

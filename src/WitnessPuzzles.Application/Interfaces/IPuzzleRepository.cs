@@ -11,7 +11,7 @@ public interface IPuzzleRepository
     /// </summary>
     /// <param name="id">The unique identifier of the puzzle blueprint.</param>
     /// <returns>The puzzle blueprint with the specified ID, or null if not found.</returns>
-    Task<PuzzleBlueprint?> GetBlueprintByIdAsync(int id);
+    Task<PuzzleBlueprint?> GetBlueprintByIdAsync(Guid id);
 
     /// <summary>
     /// Saves a puzzle blueprint to the data source.

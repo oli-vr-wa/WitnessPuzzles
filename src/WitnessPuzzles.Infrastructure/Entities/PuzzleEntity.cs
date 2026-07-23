@@ -4,7 +4,7 @@ namespace WitnessPuzzles.Infrastructure.Entities;
 
 public class PuzzleEntity
 {
-    public required int Id { get; set; }
+    public required Guid Id { get; set; }
     public required string Name { get; set; }
 
     public required int Width { get; set; }

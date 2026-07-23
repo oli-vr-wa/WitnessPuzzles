@@ -13,14 +13,14 @@ public static class GridMapper
     /// <param name="grid">The PuzzleGrid object to convert.</param>
     /// <param name="name">The name for the resulting PuzzleBlueprint.</param>
     /// <returns>The corresponding PuzzleBlueprint object.</returns>
-    public static PuzzleBlueprint ToBlueprint(this PuzzleGrid grid, string name)
+    public static PuzzleBlueprint ToBlueprint(this PuzzleGrid grid, Guid id, string name)
     {
         int width = grid.Cells.Values.Max(c => c.X) + 1;
         int height = grid.Cells.Values.Max(c => c.Y) + 1;
 
         var blueprint = new PuzzleBlueprint
         {
-            Id = 0, 
+            Id = id,
             Name = name,
             Width = width,
             Height = height,

@@ -17,7 +17,7 @@ public class PuzzleLoaderService(
     private readonly IGridBuilderService _gridBuilder = gridBuilder;
 
     /// <inheritdoc />
-    public async Task<PuzzleGrid?> LoadPlayablePuzzleAsync(int puzzleId)
+    public async Task<PuzzleGrid?> LoadPlayablePuzzleAsync(Guid puzzleId)
     {
         var blueprint = await _puzzleRepository.GetBlueprintByIdAsync(puzzleId);
         if (blueprint == null) return null;
