@@ -22,4 +22,13 @@ public class PuzzleRepository(PuzzleDbContext context) : IPuzzleRepository
 
         return entity.ToBlueprint();
     }
+
+    /// <inheritdoc />
+    public async Task SaveBlueprintAsync(PuzzleBlueprint blueprint)
+    {
+        var entity = blueprint.ToEntity();
+
+        await _context.Puzzles.AddAsync(entity);
+        await _context.SaveChangesAsync();
+    }
 }
