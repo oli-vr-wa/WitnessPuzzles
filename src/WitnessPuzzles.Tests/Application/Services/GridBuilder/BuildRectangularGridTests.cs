@@ -5,7 +5,7 @@ namespace WitnessPuzzles.Tests.Application.Services.GridBuilder;
 
 public class BuildRectangularGridTests
 {
-    private readonly IGridBuilderService _gridBuilderService;
+    private readonly GridBuilderService _gridBuilderService;
 
     public BuildRectangularGridTests()
     {
