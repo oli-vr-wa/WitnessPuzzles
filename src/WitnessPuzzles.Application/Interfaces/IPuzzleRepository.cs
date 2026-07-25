@@ -1,4 +1,5 @@
 using WitnessPuzzles.Application.DTOs;
+using WitnessPuzzles.Core.Models;
 
 namespace WitnessPuzzles.Application.Interfaces;
 

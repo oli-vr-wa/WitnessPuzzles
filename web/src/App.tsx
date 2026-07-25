@@ -41,7 +41,7 @@ export default function App() {
       {!grid && !error && <p>Loading puzzle from SQLite...</p>}
 
       {grid && !loading && (
-        <PuzzleBoard grid={grid} cellSize={80} />
+        <PuzzleBoard grid={grid} cellSize={80} puzzleId={testPuzzleId} />
       )}
     </div>
   );
