@@ -11,8 +11,8 @@ export interface PuzzleNode {
 
 export interface PuzzleEdge {
     id: number;
-    nodeA: number;
-    nodeB: number;
+    nodeA: PuzzleNode;
+    nodeB: PuzzleNode;
     hasDot: boolean;
 }
 
