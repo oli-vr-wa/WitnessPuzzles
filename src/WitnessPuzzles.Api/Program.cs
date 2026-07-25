@@ -1,6 +1,8 @@
 using WitnessPuzzles.Application.Services;
 using WitnessPuzzles.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using WitnessPuzzles.Core.Interfaces.Validation;
+using WitnessPuzzles.Core.Services.Validation.Rules;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,9 +28,16 @@ builder.Services.AddDbContext<PuzzleDbContext>(options =>
 
 builder.Services.Scan(Scan => Scan
     .FromAssemblyOf<GridBuilderService>()
-    .AddClasses()
-    .AsMatchingInterface()
-    .WithTransientLifetime());
+    // 1. Default 1-to-1 matching for standard services (e.g. GridBuilderService -> IGridBuilderService)
+    .AddClasses(classes => classes.Where(type => !typeof(IRegionRuleValidator).IsAssignableFrom(type)))
+        .AsMatchingInterface()
+        .WithTransientLifetime()
+
+    // 2. Strategy Pattern scan: Automatically find ALL rule validators and register them 
+    //    against the common IRegionRuleValidator interface!
+    .AddClasses(classes => classes.AssignableTo<IRegionRuleValidator>())
+        .As<IRegionRuleValidator>()
+        .WithScopedLifetime());
 
 // Register Infrastructure Repositories
 builder.Services.Scan(scan => scan
