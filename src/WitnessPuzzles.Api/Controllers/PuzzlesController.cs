@@ -4,8 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WitnessPuzzles.Api.Models;
+using WitnessPuzzles.Application.DTOs;
 using WitnessPuzzles.Application.Interfaces;
+using WitnessPuzzles.Core.Interfaces.Validation;
 using WitnessPuzzles.Core.Models;
+using WitnessPuzzles.Core.Models.Validation;
 
 namespace WitnessPuzzles.Api.Controllers;
 
@@ -43,6 +46,23 @@ public class PuzzlesController(
 
         var puzzleId = await _puzzleSaverService.SavePuzzleGridAsync(request.Grid, request.Name);
         return CreatedAtAction(nameof(GetPuzzle), new { id = puzzleId }, new { Id = puzzleId });
+    }
+
+    [HttpPost("{id:guid}/validate")]
+    public async Task<ActionResult<PuzzleValidationResult>> ValidateSolution(
+        Guid id, 
+        [FromBody] ValidateSolutionDto request,
+        [FromServices] IPuzzleValidationEngine validationEngine)
+    {
+        var playablePuzzle = await _puzzleLoaderService.LoadPlayablePuzzleAsync(id);
+        if (playablePuzzle == null)
+        {
+            return NotFound(new { Message = $"Puzzle with ID {id} not found." });
+        }
+
+        var result = validationEngine.ValidateSolution(playablePuzzle, request.DrawnNodeIds);
+
+        return Ok(result);
     }
 }
 
