@@ -6,9 +6,11 @@ interface NodesLayerProps {
     cellSize: number;
     padding: number;
     edgesColor: string;
+    onNodeMouseDown: (nodeId: number) => void;
+    onNodeMouseEnter: (nodeId: number) => void;
 }
 
-export const NodesLayer: React.FC<NodesLayerProps> = ({ nodes, cellSize, padding, edgesColor }) => {
+export const NodesLayer: React.FC<NodesLayerProps> = ({ nodes, cellSize, padding, edgesColor, onNodeMouseDown, onNodeMouseEnter }) => {
     const baseRadius = cellSize * 0.06; // Mathes half the stroke width of edges (0.18 * cellSize)
 
     return (
@@ -36,6 +38,16 @@ export const NodesLayer: React.FC<NodesLayerProps> = ({ nodes, cellSize, padding
                         {node.hasDot && (
                             <circle cx={cx} cy={cy} r={baseRadius * 1.4} fill="#1a1a1a" />
                         )}
+
+                        {/* Invisible hit target for smooth mouse interactions */}
+                        <circle
+                            cx={cx}
+                            cy={cy}
+                            r={cellSize * 0.15} // Larger hit area for easier interaction
+                            fill="transparent"
+                            onMouseDown={() => onNodeMouseDown(node.id)}
+                            onMouseEnter={() => onNodeMouseEnter(node.id)}
+                        />
                     </g>
                 );
             })}
